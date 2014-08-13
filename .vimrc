@@ -29,12 +29,25 @@ filetype off                  " required
  Plugin 'Lokaltog/vim-easymotion'
  Plugin 'tomtom/tcomment_vim'
  Plugin 'tpope/vim-surround'
+"  Vim snip mate
  Plugin 'MarcWeber/vim-addon-mw-utils'
  Plugin 'tomtom/tlib_vim'
  Plugin 'garbas/vim-snipmate'
  Plugin 'jlanzarotta/bufexplorer'
  Plugin 'altercation/vim-colors-solarized'
-"  se t_Co=256
+
+
+
+"  .scss syntax highlighting
+ Plugin 'JulesWang/css.vim' " only necessary if your Vim version < 7.4
+ Plugin 'cakebaker/scss-syntax.vim'
+
+"  Plugin 'bling/vim-airline'
+"  PHP Documentor
+"  Plugin 'tobyS/vmustache' "  PHP documentor dependancy
+"  Plugin 'tobyS/pdv' "  PHP documentor
+
+ se t_Co=256
 "  Plugin 'sukima/xmledit'
 " " plugin from http://vim-scripts.org/vim/scripts.html
  Plugin 'L9'
@@ -68,13 +81,15 @@ filetype off                  " required
 "==================
 let mapleader = ","
 set guifont=MyFont\ for\ Powerline
-let g:Powerline_symbols = 'fancy'
+" let g:Powerline_symbols = 'fancy'
+" let g:airline#extensions#tabline#enabled = 1
 
 " Theme Settings
 " ==============
 syntax enable
 set background=dark
 colorscheme solarized
+" let g:airline_theme=solarized
 
 
 "FLAGS
@@ -134,7 +149,7 @@ nmap <silent> <leader>s :set spell!<CR>
 " Toggle commenting Requires T-comment plugin
 map <leader>c <c-_><c-_>
 " Toggle Nerd Tree
-map <leader>t :NERDTreeToggle<CR>
+map <silent> <leader>t :NERDTreeToggle<CR> :NERDTreeMirror<CR>
 " Toggle easymotion
 map <leader>w <leader><leader>w
 map <leader>b <leader><leader>b
@@ -144,9 +159,9 @@ map <leader>g :Tagbar<CR>
 "AUTOMATICALLY RUN THESE
 "=======================
 "Automatically Open Nerd Tree
-autocmd VimEnter * NERDTree
+" autocmd VimEnter * NERDTree
 "Automatically Open Tagbar
-autocmd VimEnter * Tagbar
+" autocmd VimEnter * Tagbar
 
 
 " ABBREVIATIONS
