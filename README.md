@@ -20,7 +20,7 @@ https://github.com/gmarik/Vundle.vim
 
 Dependencies
 ============
-ctags is needed for the tagbar plugin o work.
+ctags is needed for the tagbar plugin to work.
 http://ctags.sourceforge.net/
 
 If you have yum run this.
