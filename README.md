@@ -14,6 +14,7 @@ Installation Instructions
 =========================
 1) install vim vundle.
 https://github.com/gmarik/Vundle.vim
+
 2) copy the .vimrc from this repo.
 
 
