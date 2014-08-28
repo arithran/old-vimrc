@@ -22,5 +22,7 @@ Dependencies
 ctags is needed for the tagbar plugin o work.
 http://ctags.sourceforge.net/
 
-If you have yum tun this.
-    sudo yum install ctags
+If you have yum run this.
+```
+sudo yum install ctags
+```
