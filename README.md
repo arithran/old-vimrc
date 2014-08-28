@@ -17,6 +17,12 @@ https://github.com/gmarik/Vundle.vim
 
 2) copy the .vimrc from this repo.
 
+3) run the vindle install command in vim.
+```
+:VundleInstall
+```
+
+4) Restart vim!
 
 Dependencies
 ============
