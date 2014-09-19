@@ -144,6 +144,9 @@ nnoremap tl  :tablast<CR>
 nnoremap tn  :tabedit<Space>
 nnoremap tm  :tabm<Space>
 nnoremap td  :tabclose<CR>
+" This is to sudo write a file if opened with read only permissions
+cnoremap sudow w !sudo tee % >/dev/null
+
 "Toggle spell checker
 nmap <silent> <leader>s :set spell!<CR>
 " Toggle commenting Requires T-comment plugin
