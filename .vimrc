@@ -35,8 +35,13 @@ filetype off                  " required
  Plugin 'tomtom/tlib_vim'
  Plugin 'garbas/vim-snipmate'
  Plugin 'jlanzarotta/bufexplorer'
+"  Current Theme
  Plugin 'altercation/vim-colors-solarized'
-
+"  Bind Tmux Keys with VIM
+ Plugin 'christoomey/vim-tmux-navigator'
+"  Session Management for VIM
+ Plugin 'xolox/vim-misc'
+ Plugin 'xolox/vim-session'
 
 
 "  .scss syntax highlighting
@@ -159,6 +164,17 @@ map <leader>w <leader><leader>w
 map <leader>b <leader><leader>b
 " Toggle Tagbar
 map <leader>g :Tagbar<CR>
+
+
+" Session Management
+let	g:session_directory = "~/.vim/session"
+let g:session_autoload = "no"
+let g:session_autosave = "no"
+let g:session_command_aliases = 1
+nnoremap <leader>so :OpenSession 
+nnoremap <leader>ss :SaveSession 
+nnoremap <leader>sd :DeleteSession<CR>
+nnoremap <leader>sc :CloseSession<CR>
 
 "AUTOMATICALLY RUN THESE
 "=======================
