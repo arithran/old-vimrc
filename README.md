@@ -33,3 +33,16 @@ If you have yum run this.
 ```
 sudo yum install ctags
 ```
+
+
+
+Extras
+======
+
+You can run gvim in the terminal and get access to the xwindows  clipboard.
+
+add this to your ~/.bashrc
+
+alias vim='gvim -v'
+alias vi='gvim -v'
+
