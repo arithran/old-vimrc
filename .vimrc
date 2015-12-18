@@ -1,6 +1,7 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -17,8 +18,16 @@ Plugin 'gmarik/Vundle.vim'
 " a Git wrapper so awesome, it should be illegal
 Plugin 'tpope/vim-fugitive'
 
+
+"Game 
+Plugin 'jmanoel7/vim-games'
+
 " A tree explorer plugin for vim.
 Plugin 'scrooloose/nerdtree'
+
+" Plugin for NERDTree that provides an execute menu item, that executes system default application
+" press 'm' key, and NERDTree menu will appear. Press 'x' then to execute
+Plugin 'ivalkeen/nerdtree-execute'
 
 " Vim plugin that displays tags in a window, ordered by scope
 Plugin 'majutsushi/tagbar'
@@ -61,27 +70,56 @@ Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
 
 
-"  .scss syntax highlighting
+" SCSS syntax highlighting
 Plugin 'JulesWang/css.vim' " only necessary if your Vim version < 7.4
 Plugin 'cakebaker/scss-syntax.vim'
 
 
-"  Database Editor
+" Database Editor
 Plugin 'vim-scripts/dbext.vim'
 
+" Let's you open (preview) images in Vim
+Plugin 'ashisha/image.vim'
+
+" A barebone vim plugin to fetch user assigned cards from Trello
+Plugin 'malithsen/trello-vim'
+
+" vim-matrix-screensaver
+Plugin 'uguu-org/vim-matrix-screensaver'
+
 "  Plugin 'bling/vim-airline'
+ Plugin 'SirVer/ultisnips' "  UltiSnips is a PHP documentor dependancy
+ " Trigger configuration. Do not use <tab> if you use
+ " https://github.com/Valloric/YouCompleteMe.
+ let g:UltiSnipsExpandTrigger="<tab>"
+ let g:UltiSnipsJumpForwardTrigger="<c-b>"
+ let g:UltiSnipsJumpBackwardTrigger="<c-z>""
+
+ " Snippets are separated from the engine. Add this if you want them:
+ Plugin 'honza/vim-snippets'"
+
 "  PHP Documentor
-"  Plugin 'tobyS/vmustache' "  PHP documentor dependancy
-"  Plugin 'tobyS/pdv' "  PHP documentor
+ Plugin 'tobyS/vmustache' "  PHP documentor dependancy
+ Plugin 'tobyS/pdv' "  PHP documentor
+ let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
+ map <C-S-d> :call pdv#DocumentWithSnip()<CR>
 
 " Archived
 " ========
 " Plugin 'morhetz/gruvbox'
+" Plugin 'sukima/xmledit'
 
-se t_Co=256
-"  Plugin 'sukima/xmledit'
-" " plugin from http://vim-scripts.org/vim/scripts.html
+
+" Plugin from http://vim-scripts.org/vim/scripts.html
+" ===================================================
 Plugin 'L9'
+
+" Inserts matching bracket, paren, brace or quote 
+Plugin 'AutoClose'
+
+" Manipulating files controlled by CVS, SVN, SVK, git, bzr, and hg within VIM
+Plugin 'vcscommand.vim'
+
 Plugin 'ZoomWin'
 " " Git plugin not hosted on GitHub
 Plugin 'git://git.wincent.com/command-t.git'
@@ -111,7 +149,12 @@ filetype plugin indent on    " required
 
 " GENERAL SETTINGS
 " ================
+"Set the color of the terminal to 256 bits
+se t_Co=256 
+
+" Set the leader key
 let mapleader = ","
+
 set guifont=MyFont\ for\ Powerline
 " let g:Powerline_symbols = 'fancy'
 " let g:airline#extensions#tabline#enabled = 1
@@ -194,7 +237,7 @@ map <silent> <leader>t :NERDTreeToggle<CR> :NERDTreeMirror<CR>
 
 " Toggle easymotion
 map <leader>w <leader><leader>w
-map <leader>b <leader><leader>b
+map <leader>W <leader><leader>b
 
 " Toggle Tagbar
 map <leader>g :Tagbar<CR>
@@ -204,15 +247,15 @@ let	g:session_directory = "~/.vim/session"
 let g:session_autoload = "no"
 let g:session_autosave = "no"
 let g:session_command_aliases = 1
-nnoremap <leader>so :OpenSession 
-nnoremap <leader>ss :SaveSession 
+nnoremap <leader>so :OpenSession
+nnoremap <leader>ss :SaveSession
 nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
 
 " Manual Fold shotcuts, Press Space to toggle a fold in Normal mode and Create
 " in Visual Mode
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
-vnoremap <Space> zf
+noremap <Space> zf
 
 
 " AUTOMATICALLY RUN THESE
@@ -233,7 +276,27 @@ au FileChangedShell * echo "Warning: File changed on disk"
 
 " if the file type is .ctp change the file type to HTML and then indent the
 " lines
-" au BufEnter,BufNew *.ctp map gg=G :se ft=html<CR> gg=G 
+" au BufEnter,BufNew *.ctp map gg=G :se ft=html<CR> gg=G
 " au BufNewFile,BufRead *.ctp map gg=G :se ft=html<CR>:1<CR>=G:se ft=php<CR>
 
 
+if !exists("*StripTrailingWhitespace")
+	function StripTrailingWhitespace()
+		if !&binary && &filetype != 'diff'
+			normal mz
+			normal Hmy
+			%s/\s\+$//c
+			normal 'yz<CR>
+			normal `z
+		endif
+	endfunction
+endif
+
+
+autocmd CursorHold * call Timer()
+function! Timer()
+	" echo "hi";
+	" :Matrix
+	" K_IGNORE keycode does not work after version 7.2.025)
+	"   " there are numerous other keysequences that you can use
+endfunction
