@@ -93,7 +93,11 @@ Plugin 'uguu-org/vim-matrix-screensaver'
  " https://github.com/Valloric/YouCompleteMe.
  let g:UltiSnipsExpandTrigger="<tab>"
  let g:UltiSnipsJumpForwardTrigger="<c-b>"
- let g:UltiSnipsJumpBackwardTrigger="<c-z>""
+ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+
+ " If you want :UltiSnipsEdit to split your window.
+ let g:UltiSnipsEditSplit="vertical""
 
  " Snippets are separated from the engine. Add this if you want them:
  Plugin 'honza/vim-snippets'"
@@ -102,7 +106,7 @@ Plugin 'uguu-org/vim-matrix-screensaver'
  Plugin 'tobyS/vmustache' "  PHP documentor dependancy
  Plugin 'tobyS/pdv' "  PHP documentor
  let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
- map <C-S-d> :call pdv#DocumentWithSnip()<CR>
+ nnoremap <C-s-d> :call pdv#DocumentWithSnip()<CR>
 
 " Archived
 " ========
@@ -170,6 +174,7 @@ colorscheme solarized
 
 " Flags
 " =====
+set spell " turn on spell checker
 set spelllang=en_gb " spelling GB
 set gdefault " sets global flag by default
 set noswapfile " doesn't create a swap file
