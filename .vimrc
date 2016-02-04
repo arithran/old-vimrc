@@ -88,25 +88,27 @@ Plugin 'malithsen/trello-vim'
 Plugin 'uguu-org/vim-matrix-screensaver'
 
 "  Plugin 'bling/vim-airline'
- Plugin 'SirVer/ultisnips' "  UltiSnips is a PHP documentor dependancy
- " Trigger configuration. Do not use <tab> if you use
- " https://github.com/Valloric/YouCompleteMe.
- let g:UltiSnipsExpandTrigger="<tab>"
- let g:UltiSnipsJumpForwardTrigger="<c-b>"
- let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+Plugin 'SirVer/ultisnips' "  UltiSnips is a PHP documentor dependancy
+" Trigger configuration. Do not use <tab> if you use
+" https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 
- " If you want :UltiSnipsEdit to split your window.
- let g:UltiSnipsEditSplit="vertical""
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical""
 
- " Snippets are separated from the engine. Add this if you want them:
- Plugin 'honza/vim-snippets'"
+" Snippets are separated from the engine. Add this if you want them:
+Plugin 'honza/vim-snippets'"
 
 "  PHP Documentor
- Plugin 'tobyS/vmustache' "  PHP documentor dependancy
- Plugin 'tobyS/pdv' "  PHP documentor
- let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
- nnoremap <C-s-d> :call pdv#DocumentWithSnip()<CR>
+Plugin 'tobyS/vmustache' "  PHP documentor dependancy
+Plugin 'tobyS/pdv' "  PHP documentor
+let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
+
+"  JavaScript JS Documentor
+Plugin 'heavenshell/vim-jsdoc'
 
 " Archived
 " ========
@@ -203,6 +205,8 @@ set smartindent   " Do smart indenting when starting a new line
 set autoindent    " Copy indent from current line, over to the new line
 set fo=vt         " Set the format options ('formatoptions')
 set nojoinspaces  " :h joinspaces
+set listchars=tab:▸\ ,eol:¬ " pretify :set list
+
 
 " Set the tab width
 let s:tabwidth=4
@@ -237,6 +241,14 @@ nmap <silent> <leader>s :set spell!<CR>
 " Toggle commenting Requires T-comment plugin
 map <leader>c <c-_><c-_>
 
+" Toggle php Doc Requires tobyS/pdv plugin
+autocmd Filetype php nnoremap <leader>dd :call pdv#DocumentWithSnip()<CR>
+
+" Toggle javascript Doc Requires tobyS/pdv plugin
+let g:jsdoc_allow_input_prompt	= 1
+let g:jsdoc_input_description = 1
+autocmd Filetype javascript nnoremap <leader>dd :JsDoc
+
 " Toggle Nerd Tree
 map <silent> <leader>t :NERDTreeToggle<CR> :NERDTreeMirror<CR>
 
@@ -259,8 +271,23 @@ nnoremap <leader>sc :CloseSession<CR>
 
 " Manual Fold shotcuts, Press Space to toggle a fold in Normal mode and Create
 " in Visual Mode
+" Vim folding commands
+" zf#j creates a fold from the cursor down # lines.
+" zf/string creates a fold from the cursor to string .
+" zj moves the cursor to the next fold.
+" zk moves the cursor to the previous fold.
+" zo opens a fold at the cursor.
+" zO opens all folds at the cursor.
+" zm increases the foldlevel by one.
+" zM closes all open folds.
+" zr decreases the foldlevel by one.
+" zR decreases the foldlevel to zero -- all folds will be open.
+" zd deletes the fold at the cursor.
+" zE deletes all folds.
+" [z move to start of open fold.
+" ]z move to end of open fold.
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
-noremap <Space> zf
+vnoremap <Space> zf
 
 
 " AUTOMATICALLY RUN THESE
@@ -294,6 +321,12 @@ if !exists("*StripTrailingWhitespace")
 			normal 'yz<CR>
 			normal `z
 		endif
+	endfunction
+endif
+
+if !exists("*StripDosLineEndings")
+	function StripDosLineEndings()
+		:%s/$//
 	endfunction
 endif
 
