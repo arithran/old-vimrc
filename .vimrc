@@ -19,7 +19,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 
 
-"Game 
+"Game
 Plugin 'jmanoel7/vim-games'
 
 " A tree explorer plugin for vim.
@@ -120,7 +120,7 @@ Plugin 'heavenshell/vim-jsdoc'
 " ===================================================
 Plugin 'L9'
 
-" Inserts matching bracket, paren, brace or quote 
+" Inserts matching bracket, paren, brace or quote
 Plugin 'AutoClose'
 
 " Manipulating files controlled by CVS, SVN, SVK, git, bzr, and hg within VIM
@@ -156,7 +156,7 @@ filetype plugin indent on    " required
 " GENERAL SETTINGS
 " ================
 "Set the color of the terminal to 256 bits
-se t_Co=256 
+se t_Co=256
 
 " Set the leader key
 let mapleader = ","
@@ -321,6 +321,26 @@ if !exists("*StripTrailingWhitespace")
 			%s/\s\+$//c
 			normal 'yz<CR>
 			normal `z
+		endif
+	endfunction
+endif
+
+if !exists("*TidyFunctionBrackets")
+	function TidyFunctionBrackets()
+		if !&binary && &filetype != 'diff'
+
+			let colnumber1 = col('.')
+			echo colnumber1
+			normal ^
+			let colnumber2 = col('.')
+			echo colnumber2
+
+			if colnumber1 == colnumber2
+				echo "Moving Up"
+				normal kJ
+			else
+				echo "This one is ok"
+			endif
 		endif
 	endfunction
 endif
