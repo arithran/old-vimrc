@@ -177,6 +177,7 @@ colorscheme solarized
 " Flags
 " =====
 set spell " turn on spell checker
+set showcmd " see partial commands as you type them
 set spelllang=en_gb " spelling GB
 set gdefault " sets global flag by default
 set noswapfile " doesn't create a swap file
