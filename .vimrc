@@ -269,6 +269,10 @@ nnoremap <leader>ss :SaveSession
 nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
 
+
+" Auto-correct the last spelling mistake
+nnoremap <S-l> :call AutoCorrectLastSpellingMistake()<CR>
+
 " Manual Fold shotcuts, Press Space to toggle a fold in Normal mode and Create
 " in Visual Mode
 " Vim folding commands
@@ -312,6 +316,16 @@ au FileChangedShell * echo "Warning: File changed on disk"
 " au BufNewFile,BufRead *.ctp map gg=G :se ft=html<CR>:1<CR>=G:se ft=php<CR>
 
 
+if !exists("*AutoCorrectLastSpellingMistake")
+	function AutoCorrectLastSpellingMistake()
+		if !&binary && &filetype != 'diff'
+			normal ms[s1z=`s
+			" echo col(".") // Current col
+			" echo col("$") // Total col
+			" after correction move to total - current from the right
+		endif
+	endfunction
+endif
 if !exists("*StripTrailingWhitespace")
 	function StripTrailingWhitespace()
 		if !&binary && &filetype != 'diff'
