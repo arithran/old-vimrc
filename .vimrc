@@ -18,6 +18,11 @@ Plugin 'gmarik/Vundle.vim'
 " a Git wrapper so awesome, it should be illegal
 Plugin 'tpope/vim-fugitive'
 
+" Run your favorite search tool from Vim, with an enhanced results list.
+Plugin 'mileszs/ack.vim'
+
+" " Tpope's complementary pairs of mappings
+" Plugin 'tpope/vim-unimpaired'
 
 "Game
 Plugin 'jmanoel7/vim-games'
