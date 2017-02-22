@@ -275,6 +275,8 @@ nnoremap <leader>ss :SaveSession
 nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
 
+" Very Magic Search By Default
+nnoremap / /\v
 
 " Auto-correct the last spelling mistake
 nnoremap <S-l> :call AutoCorrectLastSpellingMistake()<CR>
