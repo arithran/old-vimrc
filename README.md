@@ -12,12 +12,12 @@ Screenshots
 
 Installation Instructions
 =========================
-> These instructions assume that you store this repo at: ~/workspace/php-ide-vim/
+> These instructions assume that you store this repo at: ~/workspace/
 
 1) Download this Repo
 ```
-mkdir ~/workspace/php-ide-vim/
-cd ~/workspace/php-ide-vim/
+mkdir ~/workspace/
+cd ~/workspace/
 git clone https://github.com/arithran/php-ide-vim.git
 ```
 
