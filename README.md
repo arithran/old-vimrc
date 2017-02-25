@@ -13,6 +13,7 @@ Screenshots
 Installation Instructions
 =========================
 > These instructions assume that you store this repo at: ~/workspace/php-ide-vim/
+
 1) Download this Repo
 ```
 mkdir ~/workspace/php-ide-vim/
