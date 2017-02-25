@@ -1,7 +1,7 @@
 vimrc
 =====
 
-Vimrc and settings for Web Developoers
+My vimrc and VIM settings for PHP based Fullstack Web Developoers
 
 
 Screenshots
