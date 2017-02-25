@@ -12,17 +12,42 @@ Screenshots
 
 Installation Instructions
 =========================
-1) install vim vundle.
-https://github.com/gmarik/Vundle.vim
-
-2) copy the .vimrc from this repo.
-
-3) run the vindle install command in vim.
+> These instructions assume that you store this repo at: ~/workspace/php-ide-vim/
+1) Download this Repo
 ```
-:VundleInstall
+mkdir ~/workspace/php-ide-vim/
+cd ~/workspace/php-ide-vim/
+git clone https://github.com/arithran/php-ide-vim.git
 ```
 
-4) Restart vim!
+2) Install vim vundle (Package Manager).
+> https://github.com/gmarik/Vundle.vim
+```
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+```
+
+3) Copy the .vimrc from this repo 
+> (Symlink recommended for regular updates)
+```
+cd ~
+ln -s ~/workspace/php-ide-vim/.vimrc .
+```
+
+4) Open VIM  and Install Plugins/Dependencies 
+```
+:PluginInstall
+```
+
+5) Copy Assets for Snippets and Function Headers
+> (Symlink recommended for regular updates)
+```
+cd ~/.vim/
+ln -s ~/workspace/php-ide-vim/UltiSnips/ .
+cd ~/.vim/bundle/pdv/
+ln -s ~/workspace/php-ide-vim/templates_snip/ .
+```
+
+6) Restart vim!
 
 Dependencies
 ============
