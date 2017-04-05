@@ -115,6 +115,13 @@ let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
 "  JavaScript JS Documentor
 Plugin 'heavenshell/vim-jsdoc'
 
+" mustache and handlebars mode for vim
+Plugin 'mustache/vim-mustache-handlebars'
+
+" A calendar application for Vim
+Plugin 'itchyny/calendar.vim'
+
+
 " Archived
 " ========
 " Plugin 'morhetz/gruvbox'
@@ -163,6 +170,11 @@ filetype plugin indent on    " required
 "Set the color of the terminal to 256 bits
 se t_Co=256
 
+"Keep my lines 110 chars at most
+set colorcolumn=110
+set makeprg=make\ -C\ ../build\ -j9
+
+
 " Set the leader key
 let mapleader = ","
 
@@ -197,6 +209,7 @@ set smartcase
 " set foldmethod=syntax
 set foldmethod=manual
 set foldlevelstart=1
+set foldcolumn=1
 set wildmenu " shows suggestions when tabing in normal mode
 set scrolloff=5 " adds 5 lines to the top and bottom of the window
 set laststatus=2 "adding the status line to the editor
