@@ -52,7 +52,7 @@ ln -s ~/workspace/php-ide-vim/templates_snip/ .
 
 Dependencies
 ============
-ctags is needed for the tagbar plugin to work.
+1) ctags is needed for the tagbar plugin to work.
 http://ctags.sourceforge.net/
 
 If you have yum run this.
@@ -60,6 +60,8 @@ If you have yum run this.
 sudo yum install ctags
 ```
 
+2) Follow the installation for YouCompleteMe to enable code completion
+https://github.com/Valloric/YouCompleteMe#installation
 
 
 Extras
