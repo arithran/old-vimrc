@@ -62,6 +62,8 @@ sudo yum install ctags
 
 2) Follow the installation for YouCompleteMe to enable code completion
 https://github.com/Valloric/YouCompleteMe#installation
+./install.sh --clang-completer
+
 
 
 Extras
