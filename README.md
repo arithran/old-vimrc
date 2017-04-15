@@ -1,4 +1,4 @@
-#DEPRECATION WARNING
+# DEPRECATION WARNING
 This repo has been deprecated in favour of https://github.com/arithran/dotfiles
 
 vimrc
